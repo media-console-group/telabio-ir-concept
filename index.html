@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>TELA Bio, Inc. (Nasdaq: TELA) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the TELA Bio (Nasdaq: TELA) investor relations page. Not affiliated with TELA Bio, Inc.; the official IR site is https://ir.telabio.com/.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..700;1,400..700&amp;family=Source+Code+Pro:wght@400;500;600&amp;family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "#23586a,accent-2=#e12627" --strategy committed  (committed)
+     accent   #23586a oklch(0.433 0.063 223.6)
+     accent-2 #e12627 oklch(0.586 0.219 27.2)
+     measured: white on --accent-ink 6.98:1, --accent-ink on --paper 6.79:1, --text-mid on --tint 5.66:1 */
+  --H: 223.6; --Hn: 223.6;
+  --accent:        oklch(0.78 0.113 223.6); /* bright: fills on light stock; text only on dark where --check proves >= 4.5; derived L0.78 */
+  --accent-lo:     oklch(0.78 0.113 223.6 / 0.14);
+  --accent-lt:     oklch(0.86 0.091 223.6); /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.063 223.6); /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.058 223.6); /* hover */
+  --accent-2:      oklch(0.586 0.219 27.2); /* real */
+  --accent-2-lt:   oklch(0.86 0.075 27.2);
+  --accent-2-ink:  oklch(0.46 0.187 27.2);
+  --ink:           oklch(0.26 0.010 223.6); /* headings */
+  --deep:          oklch(0.25 0.044 223.6); /* permanently dark band */
+  --deep-2:        oklch(0.15 0.028 223.6); /* gravest band / footer: darker after the design pass */
+  --paper:         oklch(0.99 0.004 223.6);
+  --card:          oklch(0.996 0.002 223.6);
+  --tint:          oklch(0.965 0.020 223.6); /* .sec-tint band, concept note, card interiors */
+  --tint-2:        oklch(0.91 0.035 223.6); /* borders, ghost outlines, the darker of two light bands */
+  --text:          oklch(0.31 0.009 223.6);
+  --text-mid:      oklch(0.49 0.011 223.6);
+  --line:          oklch(0.30 0.010 223.6 / 0.13);
+  --line-d:        oklch(0.98 0.013 223.6 / 0.14);
+  /* surface-slot defaults (foundation surface block); retune in surface.css */
+  --sheet-edge:    oklch(0.40 0.058 223.6 / 0.26);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.013 223.6 / 0.05);
+  /* TELA Bio additions (literal, real hues): the committed field is the site's own teal, the thread is the logo's red */
+  --field:         oklch(0.433 0.063 223.6); /* real #23586a: hero field, brand bands; white on it 6.98:1 */
+  --field-hi:      oklch(0.50 0.066 223.6);
+  --thread:        oklch(0.586 0.219 27.2);  /* real #e12627: the polymer thread. FILLS and strokes only; red TEXT uses --accent-2-ink */
+  --thread-soft:   oklch(0.586 0.219 27.2 / 0.5);
+  --serif:         'Besley', Georgia, serif;
+  --sans:          'Source Sans 3', system-ui, sans-serif;
+  --mono:          'Source Code Pro', ui-monospace, monospace;
+  --wrap: 1140px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:nav (computed: the listing chip stops fitting beside logo + burger) */
+@media (max-width:338px){.nav-tick{display:none}}
+/* mc:layer */
+/* TELA Bio visible layer. full-bleed-split, committed teal, red thread. Every animated class contains "motif"; the BASE state of every animated thing is its final state, animation starts only from .reveal.in. */
+
+/* ---------- type and small parts ---------- */
+body{font-size:17px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance}
+.nw{white-space:nowrap}
+.diff-h,.plate-h{text-wrap:balance}
+h1{font-size:clamp(2.3rem,3.9vw,3.7rem);font-weight:500;line-height:1.05;letter-spacing:-.018em;max-width:15ch}
+h1 em,h2 em{font-style:italic;font-weight:400;color:var(--accent-2-ink)}
+h2{font-size:clamp(1.8rem,3vw,2.55rem);font-weight:500;line-height:1.1;letter-spacing:-.012em}
+h3{font-size:clamp(1.15rem,1.8vw,1.4rem);font-weight:500}
+.lead{font-size:clamp(1.06rem,1.45vw,1.22rem)}
+.eyebrow::before{background:var(--thread)}
+.src-l{font-family:var(--mono);font-size:.7em;letter-spacing:0;white-space:nowrap;color:var(--accent-ink);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;margin-left:.2em}
+.src-l:hover{text-decoration-style:solid}
+.sec-dark .src-l{color:var(--accent-lt)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tag{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;border-radius:99px;padding:2px 9px;margin:0 6px 8px 0;color:var(--accent-ink)}
+.fig-n{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2-ink);margin-right:10px}
+
+/* ---------- the split: two halves, edge to edge. Inner edges align to the wrap through container units. ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:0;container-type:inline-size}
+.half{min-width:0;padding:clamp(48px,7vw,96px) clamp(24px,4.4vw,64px)}
+.half-l{padding-left:max(22px,calc((100cqw - var(--wrap)) / 2))}
+.half-r{padding-right:max(22px,calc((100cqw - var(--wrap)) / 2))}
+
+/* ---------- 01 hero ---------- */
+.hero{min-height:min(820px,calc(100svh - 110px))}
+.hero .half{padding-block:clamp(40px,5.2vw,76px)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:0}
+.hero-copy .lead{margin-top:18px;max-width:54ch}
+.hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:26px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.hero-facts>div{background:var(--card);padding:16px 18px 18px;position:relative}
+.hero-facts .v{display:block;font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.15rem);font-weight:500;color:var(--ink);line-height:1.1}
+.hero-facts .k{display:block;margin-top:6px;font-size:.8rem;line-height:1.45;color:var(--text-mid)}
+.hero-facts .flag .v{font-size:clamp(1.25rem,1.8vw,1.6rem)}
+.hero-facts .flag::before{content:"";position:absolute;left:18px;top:0;width:56px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+.hero-field{position:relative;display:grid;place-items:center;overflow:hidden;color:#fff}
+.hero-fig{position:absolute;inset:0;margin:0;display:grid;place-items:center}
+.hero-lattice{position:absolute;inset:0;width:100%;height:100%}
+.hero-photo{position:relative;width:min(100%,720px);height:auto;filter:drop-shadow(0 46px 44px oklch(0.16 0.04 223.6 / .62))}
+.hero-fig figcaption{position:absolute;left:clamp(22px,3vw,44px);right:clamp(22px,3vw,44px);bottom:18px;font-size:.74rem;line-height:1.4;color:oklch(0.94 0.012 223.6);max-width:none;background:oklch(0.27 0.05 223.6 / .88);padding:8px 12px;border-radius:8px}
+.lat-f path{fill:none;stroke:var(--accent-lt);stroke-opacity:.17;stroke-width:1;stroke-dasharray:3 9}
+.lat-t path{fill:none;stroke:var(--thread);stroke-width:2.8;stroke-dasharray:14 10;stroke-linecap:round}
+.lat-n{fill:none;stroke:var(--accent-2-lt);stroke-width:2;stroke-linecap:round}
+.lat-k{fill:var(--thread)}
+.motif-wipe{transform-box:fill-box;transform-origin:0 0}
+.reveal.in .motif-wipe{animation:motif-wipe 2.2s var(--ease) both}
+.reveal.in .motif-march{animation:motif-march 16s linear infinite}
+.reveal.in .motif-needle-body{animation:motif-needle 14s ease-in-out infinite alternate}
+@keyframes motif-wipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes motif-march{to{stroke-dashoffset:-72}}
+@keyframes motif-needle{from{transform:translate(0,0)}to{transform:translate(356px,356px)}}
+
+/* ---------- 02 status: the thread timeline ---------- */
+.status-head{background:var(--field);color:#fff}
+.status-head h2{color:#fff}
+.status-head .eyebrow{color:var(--accent-lt)}
+.status-head .lead{color:oklch(0.93 0.014 223.6)}
+.status-sticky{position:sticky;top:104px}
+.status-key{margin-top:26px;max-width:none}
+.status-head .tag{color:var(--accent-lt)}
+.thread-wrap{position:relative}
+.thread-tl{list-style:none}
+.thread-tl li{display:grid;grid-template-columns:84px 28px minmax(0,1fr);gap:0 18px;padding:0 0 34px;position:relative}
+.thread-tl li:last-child{padding-bottom:0}
+.thread-tl time{font-family:var(--mono);font-size:.78rem;font-weight:500;color:var(--text-mid);padding-top:3px;text-align:right}
+.knot{width:14px;height:14px;border-radius:50%;border:2.5px solid var(--thread);background:var(--paper);margin-top:5px;justify-self:center;position:relative;z-index:1}
+.thread-tl p{max-width:none;font-size:.97rem}
+.thread-tl .is-gc .knot{background:var(--thread)}
+.thread-tl .is-gc>div{background:var(--tint);border-radius:10px;padding:12px 16px 4px;margin:-10px -16px 0}
+.motif-tl-line{position:absolute;left:114.5px;top:14px;bottom:14px;width:3px;background:repeating-linear-gradient(180deg,var(--thread) 0 10px,transparent 10px 17px);transform-origin:top}
+.thread-wrap.in .motif-tl-line{animation:motif-line 3.2s var(--ease) both}
+@keyframes motif-line{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+
+/* ---------- 03 product ---------- */
+.product-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,68px);align-items:center;margin-bottom:clamp(36px,5vw,64px)}
+.prose p+p{margin-top:1em}
+.prose h3{margin-bottom:12px}
+.photo-card{margin:0;background:var(--field);border-radius:16px;padding:clamp(20px,3vw,34px) clamp(20px,3vw,34px) 16px;color:#fff}
+.photo-card img{width:min(100%,380px);height:auto;margin-inline:auto;filter:drop-shadow(0 22px 26px oklch(0.2 0.04 223.6 / .45))}
+.photo-card figcaption{margin-top:14px;font-size:.76rem;line-height:1.4;color:oklch(0.92 0.014 223.6);max-width:none}
+.plate{margin:0 0 clamp(36px,5vw,60px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,32px)}
+.plate-h{font-family:var(--serif);font-size:clamp(1.02rem,1.5vw,1.2rem);font-weight:500;line-height:1.35;color:var(--ink);margin-bottom:18px}
+.plate-note{font-size:.82rem;line-height:1.55;color:var(--text-mid);margin-top:16px;max-width:none}
+.lyr-legend{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;font-size:.82rem;color:var(--text-mid);margin:-4px 0 6px;max-width:none}
+.key{display:inline-block;vertical-align:middle;margin-right:8px}
+.key-slab{width:30px;height:10px;border-radius:3px;background:oklch(0.97 0.016 223.6);border:1.2px solid oklch(0.6 0.05 223.6)}
+.key-thread{width:34px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 7px,transparent 7px 11px)}
+.layers-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.layers-svg{width:100%;height:auto;max-width:340px;margin-inline:auto}
+.lyr-slab{fill:oklch(0.97 0.016 223.6);stroke:oklch(0.6 0.05 223.6);stroke-width:1.2}
+.lyr-thread{fill:none;stroke:var(--thread);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.lyr-run{fill:none;stroke:var(--thread);stroke-width:2;stroke-dasharray:6 6}
+.lyr-run-b{stroke-opacity:.55}
+.lyr-knot{fill:var(--thread)}
+.lyr-name{font-family:var(--serif);font-size:21px;font-weight:500;fill:var(--ink)}
+.lyr-lab{font-family:var(--sans);font-size:14.5px;fill:var(--text-mid)}
+table.fin small{display:block;margin-top:2px;font-family:var(--sans);font-size:.7rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-mid)}
+table.cfg{min-width:760px}
+table.cfg tbody th{font-family:var(--serif);font-weight:500;color:var(--ink);text-align:left;white-space:nowrap}
+table.cfg td,table.cfg th{vertical-align:top}
+table.cfg td{font-size:.9rem}
+.prs{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center;margin:clamp(36px,5vw,64px) 0}
+.photo-wide{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 10px}
+.photo-wide img{width:100%;height:auto;border-radius:8px}
+.photo-wide figcaption{margin-top:10px;font-size:.76rem;line-height:1.4;color:var(--text-mid);max-width:none}
+.diff-h{font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.6rem);font-weight:500;color:var(--ink);margin:clamp(36px,5vw,60px) 0 18px}
+.diff{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px clamp(22px,3vw,44px)}
+.diff li{display:grid;grid-template-columns:3.1rem minmax(0,1fr);grid-template-rows:auto auto;align-content:start;gap:0 14px;padding:18px 0;border-top:1px solid var(--line)}
+.diff .num{grid-row:1 / span 2;font-family:var(--serif);font-size:2.1rem;font-weight:400;color:var(--accent-2-ink);line-height:1}
+.diff h3{margin-bottom:6px;font-size:1.1rem;font-weight:600}
+.diff p{font-size:.95rem;max-width:none}
+.next{margin-top:clamp(36px,5vw,60px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,30px)}
+.next p:not(.eyebrow){max-width:78ch}
+
+/* ---------- 04 market ---------- */
+.market{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.market-head{color:oklch(0.91 0.01 223.6)}
+.market-head h2{color:#fff}
+.market-head .lead{color:oklch(0.9 0.012 223.6);margin-top:16px}
+.market-big{margin-top:30px;max-width:none;position:relative;padding-top:18px}
+.market-big::before{content:"";position:absolute;left:0;top:0;width:56px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+.market-big .v{display:block;font-family:var(--serif);font-size:clamp(2.2rem,3.8vw,3.3rem);font-weight:500;line-height:1;color:#fff}
+.market-big .k{display:block;margin-top:8px;font-size:.88rem;line-height:1.5;color:oklch(0.88 0.012 223.6);max-width:46ch}
+.caveat{margin-top:30px;font-size:.84rem;line-height:1.55;color:oklch(0.88 0.012 223.6);border:1px dashed var(--line-d);border-radius:10px;padding:12px 16px;max-width:none}
+.market-table{color:var(--text);display:flex;flex-direction:column;justify-content:center}
+.market-table .table-scroll{border-radius:12px}
+table.mkt{min-width:0}
+table.mkt th,table.mkt td{padding:12px 11px}
+table.mkt tbody th{font-weight:600;color:var(--ink);text-align:left;font-size:.9rem}
+table.mkt td{font-size:.88rem;color:var(--text)}
+table.mkt tfoot th,table.mkt tfoot td{font-weight:700;color:var(--ink);border-top:2px solid var(--ink);border-bottom:none;background:var(--card)}
+table.fin td.num,table.fin th.num{text-align:right}
+.table-note{margin-top:16px;font-size:.82rem;line-height:1.55;color:var(--text-mid);max-width:none}
+
+/* ---------- 05 financials ---------- */
+.plates-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,2.4vw,30px);margin-bottom:clamp(28px,4vw,48px)}
+.plates-row .plate{margin:0}
+.plate-a{margin-bottom:clamp(22px,3vw,34px)}
+.pa{display:grid;grid-template-columns:7.6rem minmax(0,1fr);gap:0 14px}
+.pa-labels{display:grid;grid-template-rows:320px 30px 28px 28px;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);line-height:1.25}
+.pa-labels span{align-self:center}
+.pa-labels .pa-l0{align-self:end;padding-bottom:6px}
+.pa-cols{list-style:none;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;margin:0}
+.pa-col{display:grid;grid-template-rows:320px 30px 28px 28px;text-align:center;font-family:var(--mono);min-width:0}
+.pa-barwrap{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:320px;border-bottom:3px solid var(--ink)}
+.pa-v{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--ink);padding-bottom:6px;white-space:nowrap}
+.pa-bar{position:relative;display:block;width:78%;height:var(--h);background:var(--field)}
+.pa-bar::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:repeating-linear-gradient(90deg,var(--thread) 0 6px,var(--field) 6px 10px)}
+.pa-last .pa-bar{background:var(--ink)}
+.pa-last .pa-bar::after{background:repeating-linear-gradient(90deg,var(--thread) 0 6px,var(--ink) 6px 10px)}
+.pa-y{align-self:center;font-size:.78rem;font-weight:600;color:var(--ink)}
+.pa-g,.pa-n{align-self:center;font-size:.72rem;color:var(--text-mid)}
+.pa-n{color:var(--ink)}
+.pa-first{font-size:.6rem;line-height:1.1;letter-spacing:0}
+.reveal.in .pa-bar.motif-grow{animation:motif-grow 1.1s var(--ease) both}
+@keyframes motif-grow{from{height:0}to{height:var(--h)}}
+.pb-rows{display:grid;gap:12px}
+.pb-row{display:grid;grid-template-columns:minmax(6.6rem,11rem) minmax(0,1fr) 4.4rem;gap:0 12px;align-items:center}
+.pb-l{font-size:.84rem;line-height:1.3;color:var(--text)}
+.pb-track{position:relative;display:block;height:30px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100% / 7))}
+.pb-bar{display:block;height:100%;width:var(--w);background:var(--field)}
+.pb-loan .pb-bar{background:repeating-linear-gradient(135deg,var(--field) 0 2px,transparent 2px 7px);border:2px solid var(--field)}
+.pb-track::after{content:"";position:absolute;left:var(--tx);top:-4px;bottom:-4px;width:2px;background:repeating-linear-gradient(180deg,var(--thread) 0 4px,transparent 4px 7px)}
+.pb-v{font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--ink);text-align:right}
+.pb-axis{display:grid;grid-template-columns:minmax(6.6rem,11rem) minmax(0,1fr) 4.4rem;gap:0 12px;margin-top:6px}
+.pb-axt{position:relative;display:block;height:20px;grid-column:2}
+.pb-axt span{position:absolute;left:var(--x);top:0;transform:translateX(-50%);font-family:var(--mono);font-size:.64rem;color:var(--text-mid)}
+.pb-axt span:first-child{transform:none}
+.pb-key{margin-top:10px;font-size:.78rem;line-height:1.45;color:var(--text-mid);max-width:none}
+.pb-tickkey{display:inline-block;width:2px;height:13px;background:repeating-linear-gradient(180deg,var(--thread) 0 4px,transparent 4px 7px);vertical-align:-2px;margin-right:8px}
+.reveal.in .pb-bar.motif-grow{animation:motif-growx 1.1s var(--ease) both}
+@keyframes motif-growx{from{width:0}to{width:var(--w)}}
+@keyframes motif-growh{from{width:0}to{width:var(--h)}}
+.pc{display:grid;gap:4px}
+.pc-row{display:grid;grid-template-columns:5.6rem minmax(0,1fr) 3.4rem;gap:0 12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.pc-l{font-family:var(--serif);font-size:.98rem;font-weight:500;color:var(--ink)}
+.pc-pair{display:grid;gap:6px;padding-right:62px}
+.pc-bar{position:relative;display:block;height:19px;width:var(--w)}
+.pc-bar b{position:absolute;left:calc(100% + 8px);top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.74rem;font-weight:500;white-space:nowrap;color:var(--ink)}
+.pc-prior{background:repeating-linear-gradient(135deg,var(--accent-ink) 0 2px,transparent 2px 6px);border:1.5px solid var(--accent-ink)}
+.pc-now{background:var(--field)}
+.pc-d{font-family:var(--mono);font-size:.84rem;font-weight:600;color:var(--ink);text-align:right}
+.pc-key{margin-top:12px;font-size:.78rem;line-height:1.5;color:var(--text-mid);max-width:none}
+.pc-kp,.pc-kn{display:inline-block;width:22px;height:11px;vertical-align:-1px;margin:0 6px 0 4px}
+.pc-kp{background:repeating-linear-gradient(135deg,var(--accent-ink) 0 2px,transparent 2px 6px);border:1.5px solid var(--accent-ink)}
+.pc-kn{background:var(--field)}
+.reveal.in .pc-bar.motif-grow{animation:motif-growx 1.1s var(--ease) both}
+table.stm{min-width:700px}
+table.fin tbody tr:last-child th{border-bottom:none}
+.table-scroll{container-type:inline-size}
+table.fin caption{position:sticky;left:0;width:100cqw;box-sizing:border-box}
+table.stm th[scope=row]{font-weight:500;color:var(--text);text-align:left;position:sticky;left:0;background:var(--card);max-width:21rem}
+table.stm tr.tot th,table.stm tr.tot td{font-weight:700;color:var(--ink);border-top:1px solid var(--ink)}
+table.stm thead th small{white-space:normal}
+.fin-notes{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,44px)}
+.fin-notes li{font-size:.93rem;line-height:1.55;padding-top:14px;border-top:1px solid var(--line)}
+.fin-notes strong{color:var(--ink);display:block;font-family:var(--serif);font-size:1.02rem;font-weight:500;margin-bottom:2px}
+
+/* ---------- 06 disclosures: the gravest band ---------- */
+.disclosures{color:oklch(0.9 0.01 223.6)}
+.disclosures p{max-width:70ch}
+.gc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 clamp(20px,4vw,52px);border:1px solid var(--line-d);border-radius:16px;padding:clamp(22px,4vw,46px);margin-bottom:clamp(30px,5vw,56px);background:oklch(0.215 0.034 223.6)}
+.gc-n{font-family:var(--serif);font-size:clamp(3rem,8vw,6.4rem);font-weight:400;line-height:.85;color:oklch(0.78 0.05 223.6)}
+.gc-body p+p{margin-top:1em}
+.gc-body h3{margin-bottom:12px}
+.gc blockquote{margin:18px 0 20px;padding:0;border:0;font-family:var(--serif);font-size:clamp(1.18rem,2.1vw,1.55rem);line-height:1.38;color:#fff;max-width:56ch}
+.gc blockquote::before{content:"";display:block;width:58px;height:3px;margin-bottom:16px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+.gc cite{font-style:normal;font-size:.8rem}
+.ledger{list-style:none;columns:2 420px;column-gap:clamp(32px,5vw,72px)}
+.ledger li{break-inside:avoid;display:grid;grid-template-columns:clamp(48px,6vw,70px) minmax(0,1fr);gap:0 clamp(14px,2vw,26px);padding:26px 0 30px;border-top:1px solid var(--line-d)}
+.ledger .num{font-family:var(--serif);font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:400;line-height:1;color:oklch(0.78 0.05 223.6)}
+.ledger h3{font-size:clamp(1.18rem,1.8vw,1.45rem);margin-bottom:10px}
+.ledger p{font-size:.95rem;line-height:1.6}
+.ledger p+p{margin-top:.8em}
+
+/* ---------- 07 record + contact ---------- */
+.record-list .sec-head{margin-bottom:26px}
+.doc-list{list-style:none}
+.doc-list li{display:grid;grid-template-columns:5.6rem 4.6rem minmax(0,1fr) auto;gap:4px 14px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.doc-list time,.doc-list .form{font-family:var(--mono);font-size:.76rem;color:var(--text-mid)}
+.doc-list .form{font-weight:600;color:var(--ink)}
+.doc-list .what{font-size:.93rem;line-height:1.45}
+.doc-l{font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.contact{display:block}
+.contact-sticky{position:sticky;top:104px}
+.contact .lead{margin-top:16px}
+.chan{list-style:none;display:grid;gap:10px;margin:26px 0}
+.chan .btn{width:100%;justify-content:space-between}
+.addr{display:grid;gap:0}
+.addr>div{display:grid;grid-template-columns:8.4rem minmax(0,1fr);gap:4px 16px;padding:13px 0;border-top:1px solid var(--line)}
+.addr dt{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);padding-top:3px}
+.addr dd{font-size:.93rem;line-height:1.5}
+
+/* ---------- footer ---------- */
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--line-d)}
+.footer-logo img{height:34px;width:auto}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 24px;list-style:none}
+.footer-links a{font-family:var(--serif);font-size:.88rem;font-weight:500;color:oklch(0.92 0.012 223.6);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-d)}
+.footer-links a:hover{color:#fff;text-decoration-color:var(--thread)}
+
+/* ---------- design pass: bolder (composition and craft, never alarm colour) ---------- */
+/* type: weight contrast inside one family (Besley 600 roman against 400 italic), Source Code Pro labels at 600 */
+h1,h2,h3{font-weight:600}
+.hero h1{font-size:clamp(2.6rem,4.5vw,4.4rem);line-height:1.02;letter-spacing:-.024em;max-width:none}
+h1 em{font-weight:400;font-size:1.07em;letter-spacing:-.012em}
+h2{font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.016em}
+.eyebrow{font-weight:600;letter-spacing:.18em}
+.eyebrow::after{content:"";display:block;width:44px;height:2px;margin-left:4px;background:repeating-linear-gradient(90deg,var(--thread) 0 6px,transparent 6px 10px)}
+.tag{font-weight:600}
+.hero-copy .eyebrow::after{display:none}
+.fig-n{font-weight:600;letter-spacing:.16em}
+.hero-facts .v{font-weight:600;font-size:clamp(1.8rem,2.7vw,2.4rem)}
+.thread-tl time{font-weight:600;font-size:.82rem;color:var(--ink)}
+.diff .num{font-size:2.7rem}
+.market-big .v{font-size:clamp(2.6rem,4.6vw,4rem);font-weight:600}
+
+/* the seam: a red running stitch holds the two halves of every split band together */
+.split{position:relative;--seam:50%}
+.split::before{content:"";position:absolute;z-index:3;top:0;bottom:0;left:var(--seam);width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,var(--thread) 0 10px,transparent 10px 20px);pointer-events:none}
+.market{--seam:55%;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.market-table{order:1;padding-left:max(22px,calc((100cqw - var(--wrap)) / 2));padding-right:clamp(24px,4.4vw,64px)}
+.market-head{order:2;padding-left:clamp(24px,4.4vw,64px);padding-right:max(22px,calc((100cqw - var(--wrap)) / 2))}
+
+/* hero depth: a vignette on the field, the pads lifted, one slow breath on a pausable motif class */
+.hero-field::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 92% at 50% 42%, transparent 52%, oklch(0.27 0.05 223.6 / .55))}
+.hero-fig{z-index:1}
+.reveal.in .motif-photo{animation:motif-breathe 11s ease-in-out infinite alternate}
+@keyframes motif-breathe{from{transform:translateY(0) rotate(0)}to{transform:translateY(-10px) rotate(-.5deg)}}
+
+/* the timeline: heavier thread, bigger knots, the going-concern entry carries the weight (ring and tint, not colour) */
+.knot{width:18px;height:18px;border-width:3px;margin-top:3px;box-shadow:0 0 0 5px var(--paper);transition:transform .3s var(--ease)}
+.thread-tl li:hover .knot{transform:scale(1.2)}
+.thread-tl .is-gc .knot{width:24px;height:24px;margin-top:0;outline:2px dashed var(--thread);outline-offset:5px;box-shadow:none}
+.thread-tl .is-gc>div{position:relative;padding-top:18px}
+.thread-tl .is-gc>div::before{content:"";position:absolute;left:16px;top:0;width:56px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+
+/* plates: elevation and a stitched head, so the data has presence */
+.plate{position:relative;box-shadow:0 1px 0 var(--line),0 34px 54px -36px oklch(0.3 0.05 223.6 / .38)}
+.plate::before{content:"";position:absolute;left:clamp(18px,3vw,32px);top:0;width:64px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+.plate-h{font-size:clamp(1.12rem,1.7vw,1.4rem);font-weight:600}
+.pb-track{height:36px}
+.pb-v{font-size:.95rem;font-weight:600}
+.pc-bar{height:22px}
+.next{position:relative}
+.next::before{content:"";position:absolute;left:clamp(18px,3vw,30px);top:0;width:64px;height:3px;background:repeating-linear-gradient(90deg,var(--thread) 0 8px,transparent 8px 13px)}
+.photo-card{background-image:radial-gradient(72% 56% at 50% 40%, oklch(0.78 0.113 223.6 / .22), transparent 72%);box-shadow:0 40px 64px -40px oklch(0.2 0.04 223.6 / .7)}
+
+/* disclosures: the gravest band, darker and heavier, not louder */
+.disclosures h2{font-size:clamp(2.2rem,4.6vw,3.7rem)}
+.disclosures .sec-head{max-width:780px;margin-bottom:clamp(44px,6vw,84px)}
+.gc{padding:clamp(26px,5vw,64px);box-shadow:0 44px 90px -52px oklch(0.08 0.02 223.6 / .9)}
+.gc-n{font-size:clamp(4rem,10vw,8.6rem);font-weight:300}
+.gc blockquote{font-weight:500}
+.ledger li{border-top:3px double var(--line-d);padding:30px 0 34px}
+.ledger .num{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300}
+.ledger p{line-height:1.66}
+
+/* record: a quiet hover, nothing else moves */
+.doc-list li{transition:background .25s var(--ease)}
+.doc-list li:hover{background:var(--tint)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1060px){
+  .hero-facts{grid-template-columns:1fr}
+  .diff{grid-template-columns:1fr}
+  .fin-notes{grid-template-columns:1fr}
+  .plates-row{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .split{grid-template-columns:minmax(0,1fr)}
+  .split::before{display:none}
+  .market-head,.market-table{order:0;padding-left:22px;padding-right:22px}
+  .gc-n{margin-bottom:6px}
+  .half,.half-l,.half-r{padding-left:22px;padding-right:22px;padding-top:clamp(40px,9vw,64px);padding-bottom:clamp(40px,9vw,64px)}
+  .hero{min-height:0}
+  h1{max-width:none}
+  .hero-field{min-height:clamp(380px,92vw,560px)}
+  .status-sticky{position:static}
+  .product-grid,.prs{grid-template-columns:1fr}
+  .photo-card{max-width:440px}
+  .gc{grid-template-columns:1fr}
+  .gc-n{font-size:3.4rem;margin-bottom:10px}
+  .ledger{columns:1}
+}
+@media (max-width:720px){
+  .layers-row{grid-template-columns:1fr;gap:0}
+  .layers-svg{max-width:300px}
+  .hero-facts .v{font-size:1.7rem}
+  .thread-tl li{grid-template-columns:62px 28px minmax(0,1fr);gap:0 12px}
+  .motif-tl-line{left:86.5px}
+  .thread-tl time{font-size:.72rem}
+  .thread-tl .is-gc>div{margin:-10px -10px 0;padding:12px 10px 4px}
+  /* plate A turns on its side: one row per year */
+  .pa{display:block}
+  .pa-labels{grid-template-rows:none;grid-template-columns:2.8rem minmax(0,1fr) 3.3rem 3.2rem;gap:0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .pa-labels span{align-self:end}
+  .pa-labels span:nth-child(1){grid-column:2;grid-row:1}
+  .pa-labels span:nth-child(2){grid-column:1;grid-row:1}
+  .pa-labels span:nth-child(3){grid-column:3;grid-row:1}
+  .pa-labels span:nth-child(4){grid-column:4;grid-row:1}
+  .pa-cols{grid-template-columns:1fr;gap:0}
+  .pa-col{grid-template-rows:none;grid-template-columns:2.8rem minmax(0,1fr) 3.3rem 3.2rem;gap:0 8px;align-items:center;text-align:left;padding:5px 0;border-bottom:1px solid var(--line)}
+  .pa-barwrap{grid-column:2;grid-row:1;flex-direction:row;align-items:center;justify-content:flex-start;height:24px;border-bottom:0}
+  .pa-bar{order:1;width:var(--h);height:100%}
+  .pa-bar::after{top:0;bottom:0;left:auto;right:0;width:4px;height:auto;background:repeating-linear-gradient(180deg,var(--thread) 0 4px,var(--field) 4px 7px)}
+  .pa-last .pa-bar::after{background:repeating-linear-gradient(180deg,var(--thread) 0 4px,var(--ink) 4px 7px)}
+  .pa-v{order:2;padding:0 0 0 8px}
+  .pa-y{grid-column:1;grid-row:1;text-align:left}
+  .pa-g{grid-column:3;grid-row:1;text-align:right}
+  .pa-n{grid-column:4;grid-row:1;text-align:right}
+  .reveal.in .pa-bar.motif-grow{animation:motif-growh 1.1s var(--ease) both}
+  .pb-row{grid-template-columns:minmax(0,1fr) 4.2rem;gap:4px 10px}
+  .pb-l{grid-column:1 / -1}
+  .pb-axis{grid-template-columns:minmax(0,1fr) 4.2rem;gap:0 10px}
+  .pb-axt{grid-column:1}
+  .pc-row{grid-template-columns:minmax(0,1fr) 3.4rem;gap:4px 10px}
+  .pc-l{grid-column:1 / -1}
+  .fin-notes li{font-size:.92rem}
+  .ledger li{grid-template-columns:1fr;gap:6px 0;padding:22px 0 26px}
+  .ledger .num{font-size:1.8rem}
+  .doc-l{display:inline-flex;align-items:center;min-height:44px}
+  .contact-sticky{position:static}
+  /* the two reference tables turn into cards: one per row, each cell labelled */
+  table.cfg,table.mkt,table.cfg tbody,table.mkt tbody,table.mkt tfoot,table.cfg tr,table.mkt tr,table.cfg th,table.mkt th,table.cfg td,table.mkt td{display:block}
+  table.cfg,table.mkt{min-width:0}
+  table.cfg thead,table.mkt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.cfg tr,table.mkt tr{padding:16px 16px 12px;border-bottom:1px solid var(--line)}
+  table.cfg tbody tr:last-child,table.mkt tbody tr:last-child{border-bottom:1px solid var(--line)}
+  table.cfg tbody th,table.mkt tbody th,table.mkt tfoot th{padding:0 0 8px;border:0;white-space:normal;font-size:1.04rem}
+  table.cfg td,table.mkt td,table.mkt tfoot td{display:grid;grid-template-columns:6.6rem minmax(0,1fr);gap:8px;padding:4px 0;border:0;text-align:left;font-size:.9rem}
+  table.cfg td::before,table.mkt td::before{content:attr(data-label);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);padding-top:4px}
+  table.mkt td.num,table.mkt tfoot td.num{text-align:left}
+  table.mkt tfoot tr{border-top:2px solid var(--ink);border-bottom:0}
+  table.mkt tfoot th,table.mkt tfoot td{border-top:0}
+  .doc-list li{grid-template-columns:auto auto minmax(0,1fr);gap:2px 12px}
+  .doc-list .what{grid-column:1 / -1;order:3}
+  .doc-list .doc-l{grid-column:1 / -1;order:4}
+  .addr>div{grid-template-columns:1fr}
+  .chan .btn{white-space:normal}
+}
+@media print{
+  .hero-field,.status-head,.photo-card,.market-head{background:#fff!important;color:#000!important}
+  .hero-field *,.status-head *,.photo-card *,.market-head *{color:#000!important}
+}
+/* mc:surface */
+/* TELA Bio surface system. Derived from the signature: the quilted diamond stitching of the product and the red running stitch that holds it.
+   Polarity: printed dark ruling on white stock (none needed: wash + hem only), BLIND WHITE diamond quilting on tinted stock, negative ruling on dark.
+   Layer order on light stock: the hem (thin, top of stack, sits in the unreachable band edge) then the quilting underneath; text never lands on the hem
+   (it is 14px from the band edge, inside the section padding clamp(56px,8vw,104px) / half padding clamp(48px,7vw,96px)). */
+:root{
+  --sheet-edge: oklch(0.40 0.058 223.6 / 0.26);
+  --blind:      oklch(1 0 0 / 0.55);
+  --blind-k:    oklch(1 0 0 / 0.88);
+  --sheet-neg:  oklch(0.98 0.013 223.6 / 0.055);
+  --hem:        repeating-linear-gradient(90deg, oklch(0.586 0.219 27.2 / 0.55) 0 9px, transparent 9px 16px);
+  --hem-d:      repeating-linear-gradient(90deg, oklch(0.586 0.219 27.2 / 0.7) 0 9px, transparent 9px 16px);
+}
+
+/* white stock: head wash with the hem across the top edge */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    var(--hem),
+    linear-gradient(to bottom, var(--tint) 0, var(--paper) 230px);
+  background-size:100% 2px, 100% 230px;
+  background-position:0 14px, 0 0;
+  background-repeat:no-repeat;
+}
+
+/* tinted stock: BLIND WHITE diamond quilting, two directions at 45 degrees, 40px module */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    var(--hem),
+    repeating-linear-gradient(45deg, var(--blind-k) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(-45deg, var(--blind-k) 0 1px, transparent 1px 40px);
+  background-size:100% 2px, auto, auto;
+  background-position:0 14px, 0 0, 0 0;
+  background-repeat:no-repeat, repeat, repeat;
+}
+
+/* dark stock: the same quilting printed in negative */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    var(--hem-d),
+    repeating-linear-gradient(45deg, var(--sheet-neg) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(-45deg, var(--sheet-neg) 0 1px, transparent 1px 40px);
+  background-size:100% 2px, auto, auto;
+  background-position:0 14px, 0 0, 0 0;
+  background-repeat:no-repeat, repeat, repeat;
+}
+
+/* gravest band: its own stock. Darkest tone, no quilting, a plain horizontal ledger ruling every 28px (the disclosures are a ledger), no added chroma or glow. */
+.sec-dark-2{
+  background-color:var(--deep-2);
+  background-image:
+    var(--hem-d),
+    repeating-linear-gradient(180deg, var(--sheet-neg) 0 1px, transparent 1px 28px);
+  background-size:100% 2px, auto;
+  background-position:0 14px, 0 0;
+  background-repeat:no-repeat, repeat;
+}
+
+/* halves */
+.hero-copy{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(to bottom, var(--tint) 0, var(--paper) 260px);
+  background-size:100% 260px;
+  background-repeat:no-repeat;
+}
+.hero-field{
+  background-color:var(--field);
+  background-image:
+    radial-gradient(62% 52% at 50% 50%, oklch(0.78 0.113 223.6 / 0.22), transparent 72%),
+    linear-gradient(165deg, var(--field-hi) 0, var(--field) 46%, oklch(0.36 0.056 223.6) 100%);
+}
+.status-head{
+  background-color:var(--field);
+  background-image:
+    repeating-linear-gradient(180deg, var(--sheet-neg) 0 1px, transparent 1px 28px),
+    linear-gradient(200deg, var(--field-hi) 0, var(--field) 58%);
+}
+.status-list{
+  background-color:var(--paper);
+  background-image:linear-gradient(to bottom, var(--tint) 0, var(--paper) 200px);
+  background-size:100% 200px;
+  background-repeat:no-repeat;
+}
+.market-table{
+  background-color:var(--tint);
+  background-image:
+    repeating-linear-gradient(45deg, var(--blind-k) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(-45deg, var(--blind-k) 0 1px, transparent 1px 40px);
+}
+.record-list{
+  background-color:var(--paper);
+  background-image:linear-gradient(to bottom, var(--tint) 0, var(--paper) 200px);
+  background-size:100% 200px;
+  background-repeat:no-repeat;
+}
+.table-scroll{background:var(--card)}   /* table cells are transparent; never paint a band behind data */
+
+footer{
+  background-color:var(--deep-2);
+  background-image:
+    var(--hem-d),
+    repeating-linear-gradient(180deg, var(--sheet-neg) 0 1px, transparent 1px 28px);
+  background-size:100% 2px, auto;
+  background-position:0 14px, 0 0;
+  background-repeat:no-repeat, repeat;
+}
+
+@media print{
+  .sec-white,.sec-tint,.sec-dark,.sec-dark-2,.hero-copy,.hero-field,.status-head,.status-list,.market-table,.record-list,footer{background-image:none}
+}
+@media (forced-colors:active){
+  /* background-image is dropped here; the bands keep their system colours and the stitched hem simply disappears */
+  .sec-white,.sec-tint,.sec-dark,.sec-dark-2,.hero-field,.status-head{background-image:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with TELA Bio, Inc. Official investor relations: <a href="https://ir.telabio.com/" target="_blank" rel="noopener">ir.telabio.com</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/logo.svg" alt="TELA Bio" width="288" height="79"></span><span class="nav-tick">Nasdaq: TELA</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#product">Product</a></li>
+        <li><a href="#market">Market</a></li>
+        <li><a href="#financials">Financials</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#record">Record</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ 01 HERO: image-led. Identity first (what TELA Bio makes), then the four numbers a reader needs, one of them the going-concern conclusion. The right half is the company's own product photograph on the brand teal, with the red polymer thread stitched behind it. ============ -->
+<section id="hero" class="hero split sec-white" aria-labelledby="hero-h">
+  <div class="half half-l hero-copy">
+    <p class="eyebrow reveal">TELA Bio &middot; Nasdaq: TELA &middot; Malvern, Pennsylvania</p>
+    <h1 id="hero-h" class="reveal" style="--d:.05s">Reinforced tissue matrices for <em><span class="nw">soft-tissue</span> reconstruction</em></h1>
+    <p class="lead reveal" style="--d:.1s">TELA Bio sells OviTex, layers of ovine rumen tissue with polymer thread embroidered through them, for hernia repair and abdominal wall reconstruction, and OviTex PRS for plastic and reconstructive surgery. The company says its aim is the &ldquo;preservation and restoration of the patient&rsquo;s own anatomy.&rdquo; <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+
+    <div class="hero-facts reveal" style="--d:.14s">
+      <div>
+        <span class="v">$80.3M</span>
+        <span class="k">revenue, year ended Dec&nbsp;31, 2025, up 16% from $69.3M <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 7</a></span>
+      </div>
+      <div>
+        <span class="v">$38.4M</span>
+        <span class="k">revenue, six months ended Jun&nbsp;30, 2026, unaudited, down 1% from $38.7M; the second quarter alone was $19.3M, down 4% <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></span>
+      </div>
+      <div>
+        <span class="v">$30.4M</span>
+        <span class="k">cash at Jun&nbsp;30, 2026, unaudited (Dec&nbsp;31, 2025: $50.8M), beside $60.0M of term-loan principal <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, balance sheet</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 6</a></span>
+      </div>
+      <div class="flag">
+        <span class="v">Substantial doubt</span>
+        <span class="k">about the ability to continue as a going concern, stated in the 10-Q for the quarter ended Jun&nbsp;30, 2026; the 10-K for 2025 had no such conclusion <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 3</a></span>
+      </div>
+    </div>
+
+    <div class="hero-cta reveal" style="--d:.18s">
+      <a class="btn btn-primary" href="#disclosures">Read the disclosures <span class="arw" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="https://ir.telabio.com/" target="_blank" rel="noopener">Company investor site <span class="arw" aria-hidden="true">&nearr;</span></a>
+    </div>
+  </div>
+
+  <div class="half half-r hero-field">
+    <figure class="hero-fig reveal" id="hero-motif" style="--d:.12s">
+      <svg class="hero-lattice" viewBox="0 0 720 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="lat-wipe" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="700">
+      <rect class="motif-wipe" x="0" y="0" width="720" height="700" fill="#fff"/>
+    </mask>
+  </defs>
+  <g class="lat-f"><path d="M-700 0L0 700"/><path d="M-508 0L192 700"/><path d="M-412 0L288 700"/><path d="M-316 0L384 700"/><path d="M-124 0L576 700"/><path d="M-28 0L672 700"/><path d="M68 0L768 700"/><path d="M260 0L960 700"/><path d="M356 0L1056 700"/><path d="M452 0L1152 700"/><path d="M644 0L1344 700"/><path d="M0 0L-700 700"/><path d="M96 0L-604 700"/><path d="M192 0L-508 700"/><path d="M384 0L-316 700"/><path d="M480 0L-220 700"/><path d="M576 0L-124 700"/><path d="M768 0L68 700"/><path d="M864 0L164 700"/><path d="M960 0L260 700"/><path d="M1152 0L452 700"/><path d="M1248 0L548 700"/><path d="M1344 0L644 700"/></g>
+  <g class="lat-t" mask="url(#lat-wipe)"><path class="motif-march" d="M-604 0L96 700"/><path class="motif-march" d="M-220 0L480 700"/><path class="motif-march" d="M164 0L864 700"/><path class="motif-march" d="M548 0L1248 700"/><path class="motif-march" d="M288 0L-412 700"/><path class="motif-march" d="M672 0L-28 700"/><path class="motif-march" d="M1056 0L356 700"/></g>
+  <g class="motif-needle" transform="translate(364 200)">
+    <g class="motif-needle-body"><path d="M-34 -34L0 0" class="lat-n"/><circle r="5.6" class="lat-k"/></g>
+  </g>
+</svg>
+      <img class="hero-photo motif-photo" src="img/pads-fan.webp" width="1280" height="839" fetchpriority="high" alt="Seven pads of reinforced tissue matrix fanned out, some quilted in a diamond pattern and some stitched with a fine blue grid">
+      <figcaption>Company product photograph, from the telabio.com home page. The red stitching behind it is drawn for this page.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 02 READ FIRST: eleven dated entries, oldest first, each from a filing. The thread runs down between the date and the text. The left half stays in view while the entries scroll. ============ -->
+<section id="status" class="status split sec-white" aria-labelledby="status-h">
+  <div class="half half-l status-head">
+    <div class="status-sticky">
+      <p class="eyebrow reveal">Read first</p>
+      <h2 id="status-h" class="reveal" style="--d:.05s">Eleven filed events, March to October 2026</h2>
+      <p class="lead reveal" style="--d:.1s">Each entry is in a filing the company made with the SEC and is linked to it. The going-concern statement is entry six, in the 10-Q. The entries after it describe later events; none of them updates that statement, and the 10-Q for the quarter ended Sep&nbsp;30, 2026 has not been filed.</p>
+      <p class="status-key reveal" style="--d:.14s"><span class="tag">Listing</span><span class="tag">Results</span><span class="tag">Leadership</span><span class="tag">Financing</span><span class="tag">Filing</span><span class="tag">Product</span></p>
+    </div>
+  </div>
+
+  <div class="half half-r status-list">
+    <div class="thread-wrap reveal">
+    <span class="motif-tl-line" aria-hidden="true"></span>
+    <ol class="thread-tl">
+      <li class="reveal">
+        <time datetime="2026-03-17">Mar&nbsp;17</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Listing</span>
+          <p>Nasdaq writes that the closing bid price has been below $1.00 for 30 consecutive business days, a deficiency under Listing Rule 5450(a)(1) of the Nasdaq Global Market. The notice has no immediate effect on the listing. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926032697/tm269374d1_8k.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;20, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-03-24">Mar&nbsp;24</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Results</span>
+          <p>Fourth quarter and full year 2025: revenue of $80.3M for the year, up 16%. Guidance for 2026 is revenue growth of at least 8% over 2025. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926033839/tm269387d1_8k.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;24, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-05-12">May&nbsp;12</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Results</span>
+          <p>First quarter 2026: revenue of $19.1M, up 3%, and cash of $39.5M at Mar&nbsp;31. The company reiterates its guidance of at least 8% growth. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926059393/tm2614218d1_8k.htm" target="_blank" rel="noopener">8-K, May&nbsp;12, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-08-03">Aug&nbsp;3</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Leadership</span>
+          <p>The board determines that Antony Koblish will no longer serve as chief executive, which it treats as a termination without cause, and names Heather Getz chief executive officer and a director. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926090056/tm2622121d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;4, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-08-10">Aug&nbsp;10</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Results</span>
+          <p>Second quarter revenue of $19.3M, down 4% from $20.2M, which the company attributes primarily to a decline in OviTex PRS unit volumes. It withdraws its full-year revenue guidance. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926093371/tm2622768d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;10, 2026</a></p></div>
+      </li>
+      <li class="is-gc reveal">
+        <time datetime="2026-08-11">Aug&nbsp;11</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Filing</span>
+          <p>The 10-Q for the quarter ended Jun&nbsp;30, 2026 states substantial doubt about the company&rsquo;s ability to continue as a going concern, which it ties to recurring losses, negative operating cash flows and the minimum revenue covenant in its credit agreement with Perceptive. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 3</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-08-31">Aug&nbsp;31</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Leadership</span>
+          <p>Roberto Cuca steps down as chief financial officer and chief operating officer; Ms. Getz also becomes principal financial officer. The board approves a workforce reduction of about 20% (from 201 to 160 full-time employees), with about $1.5M of charges expected in the third quarter, and the company says it has taken actions to reduce annual operating expenses by about $17.0M. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926103548/tm2624299d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;31, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-09-15">Sep&nbsp;15</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Listing</span>
+          <p>Nasdaq staff notifies the company that its stock is subject to delisting because the bid-price deficiency was not cured within 180 days. The company says it will request a hearing, which stays any suspension or delisting while the process runs. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926108935/tm2625586d1_8k.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;18, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-09-28">Sep&nbsp;28</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Financing</span>
+          <p>Perceptive and the required lenders agree that the minimum revenue covenant &ldquo;shall not be tested&rdquo; for the fiscal quarters ending on or about Sep&nbsp;30, 2026 and Dec&nbsp;31, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926111920/tm2626521d1_8k.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;29, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-10-05">Oct&nbsp;5</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Listing</span> <span class="tag">Product</span>
+          <p>Nasdaq writes that the company has regained compliance with the minimum bid price requirement and the matter is closed. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114042/tm2627116d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;6, 2026</a> The company also announces FDA 510(k) clearance for its Liora Monofilament Scaffold. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926113506/tm2627013d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;5, 2026</a></p></div>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-10-08">Oct&nbsp;8</time>
+        <span class="knot" aria-hidden="true"></span>
+        <div><span class="tag">Listing</span>
+          <p>At a special meeting, stockholders approve authority for a reverse stock split at a ratio of 1-for-5 to 1-for-15, to be set by the board. The company says it does not intend to effect the split at this time. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114695/tm2627202d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;8, 2026</a></p></div>
+      </li>
+    </ol>
+    </div>
+  </div>
+</section>
+<!-- ============ 03 PRODUCT: overview + platform + how it works + differentiators, merged. Figure 1 redraws the 10-K's own product table (layers per configuration) with the polymer thread stitched through. ============ -->
+<section id="product" class="product sec-tint" aria-labelledby="product-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Product</p>
+      <h2 id="product-h">A layered tissue matrix with polymer thread stitched through it</h2>
+      <p class="lead">The company&rsquo;s technology platform, in its own description, is &ldquo;multiple layers of minimally-processed, decellularized extracellular matrix derived from ovine rumen with interwoven polymer fibers in a unique embroidered pattern.&rdquo; <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    </div>
+
+    <div class="product-grid">
+      <div class="prose reveal">
+        <p>The tissue is the collagen component of the rumen, the forestomach of a sheep, kept after the lining, muscle and cells are removed. The thread is either permanent (polypropylene) or resorbable (PGA or PLGA). It is sewn in a lockstitch, which the company says lets the device be trimmed with less unraveling, and the embroidery creates &ldquo;hundreds of micro-channels&rdquo; for the patient&rsquo;s own cells and fluids to pass through. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+        <p>OviTex is sold for hernia repair and abdominal wall reconstruction. It was first sold in the U.S. in July 2016 and in Europe in February 2019. OviTex PRS, for plastic and reconstructive surgery, was first sold in the U.S. in May 2019. The OviTex products are made for the company by Aroa Biosurgery in Auckland, New Zealand, under an exclusive license. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+        <p>The company reports &ldquo;over sixty-five&rdquo; published or presented works on its clinical findings. Its single-arm post-market study, BRAVO, enrolled 92 patients with primary or recurrent ventral hernias. The recurrence rate at the 24-month time point was 2.6%, and surgical site occurrences were seen in 38% of the study population; 78% of the enrolled patients were characterized as high risk for them. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+      </div>
+      <figure class="photo-card reveal" style="--d:.08s">
+        <img src="img/pads-ltr.webp" width="910" height="1059" loading="lazy" alt="Two oval pads of reinforced tissue matrix, one quilted with a diamond pattern of dotted stitches">
+        <figcaption>Company product photograph, from the telabio.com home page, where it sits beside the company&rsquo;s OviTex PRS LTR announcement.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="plate layers-plate reveal" id="fig-layers">
+      <figcaption class="plate-h"><span class="fig-n">Figure 1</span> Layers of ovine rumen matrix in three OviTex configurations, thread stitched through</figcaption>
+      <p class="lyr-legend" aria-hidden="true"><span class="key key-slab"></span> a layer of decellularized ovine rumen matrix <span class="key key-thread"></span> embroidered polymer thread, lockstitch</p>
+      <div class="layers-row"><div class="lyr-cell"><svg class="layers-svg" viewBox="0 0 300 276" role="img" aria-label="OviTex: four layers of ovine rumen matrix with polymer thread stitched through" focusable="false"><g class="lyr-stack" data-layers="4"><rect class="lyr-slab" x="30.0" y="164" width="232" height="12" rx="5"/><rect class="lyr-slab" x="37.0" y="147" width="232" height="12" rx="5"/><rect class="lyr-slab" x="35.0" y="130" width="232" height="12" rx="5"/><rect class="lyr-slab" x="33.0" y="113" width="232" height="12" rx="5"/><path class="lyr-thread motif-lyr" d="M78.0 90.0L83.0 170.0L73.0 153.0L83.0 136.0L73.0 119.0L78.0 194.0"/><circle class="lyr-knot" cx="78" cy="90" r="3.6"/><path class="lyr-thread motif-lyr" d="M150.0 90.0L155.0 170.0L145.0 153.0L155.0 136.0L145.0 119.0L150.0 194.0"/><circle class="lyr-knot" cx="150" cy="90" r="3.6"/><path class="lyr-thread motif-lyr" d="M222.0 90.0L227.0 170.0L217.0 153.0L227.0 136.0L217.0 119.0L222.0 194.0"/><circle class="lyr-knot" cx="222" cy="90" r="3.6"/><path class="lyr-run" d="M78 90H222"/><path class="lyr-run lyr-run-b" d="M78 194H222"/></g><text class="lyr-name" x="150" y="238" text-anchor="middle">OviTex</text><text class="lyr-lab" x="150" y="260" text-anchor="middle">four layers &#183; strength: +</text></svg></div><div class="lyr-cell"><svg class="layers-svg" viewBox="0 0 300 276" role="img" aria-label="OviTex 1S: six layers of ovine rumen matrix with polymer thread stitched through" focusable="false"><g class="lyr-stack" data-layers="6"><rect class="lyr-slab" x="30.0" y="164" width="232" height="12" rx="5"/><rect class="lyr-slab" x="37.0" y="147" width="232" height="12" rx="5"/><rect class="lyr-slab" x="35.0" y="130" width="232" height="12" rx="5"/><rect class="lyr-slab" x="33.0" y="113" width="232" height="12" rx="5"/><rect class="lyr-slab" x="31.0" y="96" width="232" height="12" rx="5"/><rect class="lyr-slab" x="38.0" y="79" width="232" height="12" rx="5"/><path class="lyr-thread motif-lyr" d="M78.0 56.0L83.0 170.0L73.0 153.0L83.0 136.0L73.0 119.0L83.0 102.0L73.0 85.0L78.0 194.0"/><circle class="lyr-knot" cx="78" cy="56" r="3.6"/><path class="lyr-thread motif-lyr" d="M150.0 56.0L155.0 170.0L145.0 153.0L155.0 136.0L145.0 119.0L155.0 102.0L145.0 85.0L150.0 194.0"/><circle class="lyr-knot" cx="150" cy="56" r="3.6"/><path class="lyr-thread motif-lyr" d="M222.0 56.0L227.0 170.0L217.0 153.0L227.0 136.0L217.0 119.0L227.0 102.0L217.0 85.0L222.0 194.0"/><circle class="lyr-knot" cx="222" cy="56" r="3.6"/><path class="lyr-run" d="M78 56H222"/><path class="lyr-run lyr-run-b" d="M78 194H222"/></g><text class="lyr-name" x="150" y="238" text-anchor="middle">OviTex 1S</text><text class="lyr-lab" x="150" y="260" text-anchor="middle">six layers &#183; strength: ++</text></svg></div><div class="lyr-cell"><svg class="layers-svg" viewBox="0 0 300 276" role="img" aria-label="OviTex 2S: eight layers of ovine rumen matrix with polymer thread stitched through" focusable="false"><g class="lyr-stack" data-layers="8"><rect class="lyr-slab" x="30.0" y="164" width="232" height="12" rx="5"/><rect class="lyr-slab" x="37.0" y="147" width="232" height="12" rx="5"/><rect class="lyr-slab" x="35.0" y="130" width="232" height="12" rx="5"/><rect class="lyr-slab" x="33.0" y="113" width="232" height="12" rx="5"/><rect class="lyr-slab" x="31.0" y="96" width="232" height="12" rx="5"/><rect class="lyr-slab" x="38.0" y="79" width="232" height="12" rx="5"/><rect class="lyr-slab" x="36.0" y="62" width="232" height="12" rx="5"/><rect class="lyr-slab" x="34.0" y="45" width="232" height="12" rx="5"/><path class="lyr-thread motif-lyr" d="M78.0 22.0L83.0 170.0L73.0 153.0L83.0 136.0L73.0 119.0L83.0 102.0L73.0 85.0L83.0 68.0L73.0 51.0L78.0 194.0"/><circle class="lyr-knot" cx="78" cy="22" r="3.6"/><path class="lyr-thread motif-lyr" d="M150.0 22.0L155.0 170.0L145.0 153.0L155.0 136.0L145.0 119.0L155.0 102.0L145.0 85.0L155.0 68.0L145.0 51.0L150.0 194.0"/><circle class="lyr-knot" cx="150" cy="22" r="3.6"/><path class="lyr-thread motif-lyr" d="M222.0 22.0L227.0 170.0L217.0 153.0L227.0 136.0L217.0 119.0L227.0 102.0L217.0 85.0L227.0 68.0L217.0 51.0L222.0 194.0"/><circle class="lyr-knot" cx="222" cy="22" r="3.6"/><path class="lyr-run" d="M78 22H222"/><path class="lyr-run lyr-run-b" d="M78 194H222"/></g><text class="lyr-name" x="150" y="238" text-anchor="middle">OviTex 2S</text><text class="lyr-lab" x="150" y="260" text-anchor="middle">eight layers &#183; strength: +++</text></svg></div></div>
+      <p class="plate-note">Drawn from the OviTex portfolio table in the 10-K: OviTex has four layers, OviTex 1S six and OviTex 2S eight. The 10-K marks relative strength as + for OviTex, ++ for 1S and +++ for 2S (+ for LPR and IHR). OviTex LPR has four layers and OviTex IHR three or four. Layer counts are the filed figures; the thickness of the layers and the spacing of the stitches are not to scale. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    </figure>
+
+    <div class="table-scroll reveal">
+      <table class="fin cfg">
+        <caption>The OviTex portfolio, from the 10-K. Resorbable shelf life 18 months, permanent 36 months. Available in the U.S. and Europe; resorbable PLGA variants only in the U.S.</caption>
+        <thead><tr><th scope="col">Configuration</th><th scope="col">Layers</th><th scope="col">Surfaces</th><th scope="col">Polymer</th><th scope="col">Common procedures</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">OviTex</th><td data-label="Layers">Four</td><td data-label="Surfaces">Exposed polymer on both sides</td><td data-label="Polymer">Resorbable (PGA or PLGA) or permanent (polypropylene)</td><td data-label="Common procedures">Moderate ventral hernia (pre-peritoneal placement), inguinal hernia, hiatal hernia</td></tr>
+          <tr><th scope="row">OviTex 1S</th><td data-label="Layers">Six</td><td data-label="Surfaces">Exposed polymer on one side, one smooth side</td><td data-label="Polymer">Resorbable (PGA or PLGA) or permanent (polypropylene)</td><td data-label="Common procedures">Moderate to complex ventral hernia; can be placed intraperitoneally</td></tr>
+          <tr><th scope="row">OviTex 2S</th><td data-label="Layers">Eight</td><td data-label="Surfaces">Two smooth sides</td><td data-label="Polymer">Resorbable (PGA or PLGA) or permanent (polypropylene)</td><td data-label="Common procedures">Complex ventral hernia and abdominal wall reconstruction; can be used for bridging and placed intraperitoneally</td></tr>
+          <tr><th scope="row">OviTex LPR</th><td data-label="Layers">Four</td><td data-label="Surfaces">Exposed polymer on one side, one smooth side</td><td data-label="Polymer">Resorbable (PLGA) or permanent (polypropylene)</td><td data-label="Common procedures">Laparoscopic or robotic-assisted surgery</td></tr>
+          <tr><th scope="row">OviTex IHR</th><td data-label="Layers">Three or four (anatomical); three (rectangle)</td><td data-label="Surfaces">Exposed polymer on both sides</td><td data-label="Polymer">Resorbable (PLGA) or permanent (polypropylene)</td><td data-label="Common procedures">Laparoscopic or robotic-assisted inguinal hernia repair</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prs reveal">
+      <figure class="photo-wide">
+        <img src="img/prs-trio.jpg" width="1588" height="812" loading="lazy" alt="Three OviTex PRS pads photographed side by side, labelled short-term, long-term and permanent reinforcement">
+        <figcaption>The three OviTex PRS options, as labelled in the company&rsquo;s own photograph, from telabio.com.</figcaption>
+      </figure>
+      <div class="prose">
+        <h3>OviTex PRS</h3>
+        <p>OviTex PRS comes in three options of two or three layers. The short-term resorbable and permanent options are joined by an embroidered diamond-pattern polymer (PGA or polypropylene) that lets the product stretch in one direction; the long-term resorbable option stretches in two directions and resorbs more slowly. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+        <p>It is cleared by the FDA to reinforce soft tissue in plastic and reconstructive surgery. The company received approval of an investigational device exemption in October 2024 for a study in implant-based breast reconstruction, and says it is finalizing the study protocol and expects further FDA interactions to support a pre-market application for a breast reconstruction indication. The 10-K&rsquo;s risk factors say the FDA will require a PMA, rather than a 510(k) clearance, for that use. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+      </div>
+    </div>
+
+    <p class="diff-h reveal">Four things the company points to</p>
+    <ol class="diff">
+      <li class="reveal">
+        <span class="num" aria-hidden="true">01</span>
+        <h3>Less permanent polymer</h3>
+        <p>Synthetic material is about 5% of the OviTex Core, 1S and 2S products and about 13% of LPR and IHR. Depending on the configuration, the company puts that at about 75% less polymer than the most widely implanted permanent synthetic mesh. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+      </li>
+      <li class="reveal" style="--d:.06s">
+        <span class="num" aria-hidden="true">02</span>
+        <h3>Published data</h3>
+        <p>BRAVO&rsquo;s 24-month results were published in October 2022 in the Annals of Medicine and Surgery. Both rates are given above: 2.6% recurrence and 38% surgical site occurrences. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+      </li>
+      <li class="reveal" style="--d:.12s">
+        <span class="num" aria-hidden="true">03</span>
+        <h3>Price</h3>
+        <p>The company says OviTex is sold at prices about 20% to 40% lower than other biologic matrices and resorbable synthetic mesh, and notes an established fixed-payment (MS-DRG) reimbursement pathway for hernia repair. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+      </li>
+      <li class="reveal" style="--d:.18s">
+        <span class="num" aria-hidden="true">04</span>
+        <h3>Patents and supply</h3>
+        <p>Its patents claim the ability to tailor stretch resistance by interweaving polymer thread through a biologic matrix. Aroa supplies the ovine rumen and makes the products; the company pays Aroa a transfer cost equal to 27% of net sales of OviTex and OviTex PRS (for OviTex IHR, the greater of a fixed transfer cost or 27%). The company lists its dependence on Aroa as a risk factor. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+      </li>
+    </ol>
+
+    <div class="next reveal">
+      <p class="eyebrow">New clearance</p>
+      <p><strong>Liora Monofilament Scaffold.</strong> On Oct&nbsp;5, 2026 the company announced FDA 510(k) clearance for Liora, which it describes as &ldquo;a fully resorbable surgical mesh device for soft tissue reinforcement&rdquo; and the first implant fully developed in its ISO&nbsp;8 certified cleanroom in Malvern, Pennsylvania. The company said it would give more detail on its third quarter earnings call, expected in early November. No sales of Liora are reported. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926113506/tm2627013d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;5, 2026</a></p>
+    </div>
+  </div>
+</section>
+<!-- ============ 04 MARKET: problem + markets merged, as the company's own estimates, attributed. The left half is the dark stock, the right half the table. No figure here is independent of the company. ============ -->
+<section id="market" class="market split sec-dark" aria-labelledby="market-h">
+  <div class="half half-l market-head">
+    <p class="eyebrow reveal">Market</p>
+    <h2 id="market-h" class="reveal" style="--d:.05s">About 1.2 million U.S. hernia repairs a year, by the company&rsquo;s count</h2>
+    <p class="lead reveal" style="--d:.1s">The company calls hernia repair &ldquo;one of the most common surgeries performed in the U.S.&rdquo; and says, without naming a source, that it is estimated that about 90% of repairs use some form of reconstruction material, either synthetic mesh or a biologic matrix made from tissue. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    <p class="market-big reveal" style="--d:.14s"><span class="v">$1.8B</span><span class="k">the company&rsquo;s estimate of the annual U.S. addressable market for OviTex, based on the volume-weighted average selling price of its products <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></p>
+    <p class="market-big reveal" style="--d:.18s"><span class="v">About $800M</span><span class="k">its estimate of the current addressable U.S. market for OviTex PRS, based on current U.S. sales of biologic matrices <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></p>
+    <p class="caveat reveal" style="--d:.22s">These are the company&rsquo;s own estimates. They are not an independent market study, and they are not a forecast of the company&rsquo;s revenue.</p>
+  </div>
+
+  <div class="half half-r market-table">
+    <div class="table-scroll reveal">
+      <table class="fin mkt">
+        <caption>U.S. hernia repairs and the company&rsquo;s addressable-market estimate for OviTex, by type, from the 10-K</caption>
+        <thead><tr><th scope="col">Repair type</th><th scope="col" class="num">Procedures a year</th><th scope="col" class="num">Estimated market</th><th scope="col">Material traditionally used</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Complex or moderate ventral repair and abdominal wall reconstruction</th><td class="num" data-label="Procedures a year">105,000</td><td class="num" data-label="Estimated market">$630M</td><td data-label="Material traditionally used">Biologic matrices and resorbable synthetic mesh</td></tr>
+          <tr><th scope="row">Simple ventral hernia repair</th><td class="num" data-label="Procedures a year">395,000</td><td class="num" data-label="Estimated market">$590M</td><td data-label="Material traditionally used">Permanent synthetic mesh</td></tr>
+          <tr><th scope="row">Inguinal hernia repair</th><td class="num" data-label="Procedures a year">645,000</td><td class="num" data-label="Estimated market">$540M</td><td data-label="Material traditionally used">Permanent synthetic mesh</td></tr>
+          <tr><th scope="row">Hiatal hernia repair</th><td class="num" data-label="Procedures a year">42,000</td><td class="num" data-label="Estimated market">$42M</td><td data-label="Material traditionally used">Biologic matrices and resorbable synthetic mesh</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row">Total, as the 10-K tabulates it</th><td class="num" data-label="Procedures a year">1,187,000</td><td class="num" data-label="Estimated market">$1.8B</td><td data-label="Material traditionally used"></td></tr></tfoot>
+      </table>
+    </div>
+    <p class="table-note reveal">The text of the 10-K rounds the procedure count to 1.2 million; the table sums to 1,187,000. The company sells primarily through a single direct sales force (150 employees in its U.S. commercial organization and 19 in Europe at Dec&nbsp;31, 2025, before the August 2026 workforce reduction), with a smaller number of independent contractors and distributors, and has contracts with three national group purchasing organizations. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+  </div>
+</section>
+<!-- ============ 05 FINANCIALS: nine years of revenue and net loss on a zero-based axis; cash against the term loan to scale; the half-year product mix; the statements with every line footing. Posture: commercial, as filed; the six-month figures are unaudited. ============ -->
+<section id="financials" class="fin-band sec-white" aria-labelledby="fin-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Financials</p>
+      <h2 id="fin-h">Revenue and net loss, nine years as reported</h2>
+      <p class="lead">Annual figures are as filed in the company&rsquo;s 10-Ks; figures for the six months ended Jun&nbsp;30, 2026 and balances at that date are from the 10-Q and are unaudited. Revenue was $80.3M in 2025 and net loss was $38.8M.</p>
+    </div>
+
+    <figure class="plate plate-a reveal">
+      <figcaption class="plate-h"><span class="fig-n">Figure 2</span> Revenue and net loss, FY2017 to FY2025, as reported</figcaption>
+      <div class="pa"><div class="pa-labels" aria-hidden="true"><span class="pa-l0">Revenue</span><span>Year</span><span>Change on year before</span><span>Net loss, $M</span></div><ol class="pa-cols"><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$4.2M</span><span class="pa-bar motif-grow" style="--h:4.76%"></span></span><span class="pa-y">2017</span><span class="pa-g pa-first">first year shown</span><span class="pa-n">(21.3)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$8.3M</span><span class="pa-bar motif-grow" style="--h:9.28%"></span></span><span class="pa-y">2018</span><span class="pa-g">+95%</span><span class="pa-n">(21.1)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$15.4M</span><span class="pa-bar motif-grow" style="--h:17.32%"></span></span><span class="pa-y">2019</span><span class="pa-g">+87%</span><span class="pa-n">(22.4)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$18.2M</span><span class="pa-bar motif-grow" style="--h:20.42%"></span></span><span class="pa-y">2020</span><span class="pa-g">+18%</span><span class="pa-n">(28.8)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$29.5M</span><span class="pa-bar motif-grow" style="--h:33.03%"></span></span><span class="pa-y">2021</span><span class="pa-g">+62%</span><span class="pa-n">(33.3)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$41.4M</span><span class="pa-bar motif-grow" style="--h:46.44%"></span></span><span class="pa-y">2022</span><span class="pa-g">+41%</span><span class="pa-n">(44.3)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$58.5M</span><span class="pa-bar motif-grow" style="--h:65.53%"></span></span><span class="pa-y">2023</span><span class="pa-g">+41%</span><span class="pa-n">(46.7)</span></li><li class="pa-col"><span class="pa-barwrap"><span class="pa-v">$69.3M</span><span class="pa-bar motif-grow" style="--h:77.70%"></span></span><span class="pa-y">2024</span><span class="pa-g">+19%</span><span class="pa-n">(37.8)</span></li><li class="pa-col pa-last"><span class="pa-barwrap"><span class="pa-v">$80.3M</span><span class="pa-bar motif-grow" style="--h:90.00%"></span></span><span class="pa-y">2025</span><span class="pa-g">+16%</span><span class="pa-n">(38.8)</span></li></ol></div>
+      <p class="plate-note">Bars are revenue on a zero-based axis, with the change on the year before beneath each. Net loss is shown in $ millions. FY2023 to FY2025 are from the 10-K for 2025 <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 8</a>; FY2017 to FY2022 are the values the company reported in its 10-Ks for those years, read from SEC XBRL data, and are not among the filings linked on this page (<a class="src-l" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001561921&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">EDGAR filing list</a>).</p>
+    </figure>
+
+    <div class="plates-row">
+      <figure class="plate plate-b reveal">
+        <figcaption class="plate-h"><span class="fig-n">Figure 3</span> Cash against the term loan, to scale</figcaption>
+        <div class="pb"><div class="pb-rows"><div class="pb-row pb-cash"><span class="pb-l">Cash, Dec&nbsp;31, 2025</span><span class="pb-track" style="--tx:7.14%"><span class="pb-bar motif-grow" style="--w:72.64%"></span></span><span class="pb-v">$50.8M</span></div><div class="pb-row pb-cash"><span class="pb-l">Cash, Mar&nbsp;31, 2026</span><span class="pb-track" style="--tx:7.14%"><span class="pb-bar motif-grow" style="--w:56.49%"></span></span><span class="pb-v">$39.5M</span></div><div class="pb-row pb-cash"><span class="pb-l">Cash, Jun&nbsp;30, 2026</span><span class="pb-track" style="--tx:7.14%"><span class="pb-bar motif-grow" style="--w:43.46%"></span></span><span class="pb-v">$30.4M</span></div><div class="pb-row pb-loan"><span class="pb-l">Term loan principal, Jun&nbsp;30, 2026</span><span class="pb-track" style="--tx:7.14%"><span class="pb-bar motif-grow" style="--w:85.71%"></span></span><span class="pb-v">$60.0M</span></div></div><div class="pb-axis" aria-hidden="true"><span class="pb-axl"></span><span class="pb-axt"><span style="--x:0.00%">$0</span><span style="--x:28.57%">$20M</span><span style="--x:57.14%">$40M</span><span style="--x:85.71%">$60M</span></span><span class="pb-axv"></span></div><p class="pb-key"><span class="pb-tickkey" aria-hidden="true"></span> Dashed mark on each bar: the $5.0M minimum liquidity the credit agreement requires at all times.</p></div>
+        <p class="plate-note">Cash is cash and cash equivalents; restricted cash (about $0.2M) is not included. The loan is drawn at principal; the balance sheet carries it at $56.1M net of costs. The facility also provides for a further $10.0M delayed-draw loan, available only on reaching specified net revenue thresholds and not later than Apr&nbsp;30, 2027; borrowings outstanding at Jun&nbsp;30, 2026 were $60.0M. Cash at Mar&nbsp;31 is from the first-quarter results release. &ldquo;Liquidity&rdquo; in the covenant is a term defined in the credit agreement, which the filings do not reproduce, so the dashed mark is the threshold, not a measure of headroom. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 6</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926059393/tm2614218d1_8k.htm" target="_blank" rel="noopener">8-K, May&nbsp;12, 2026</a></p>
+      </figure>
+      <figure class="plate plate-c reveal" style="--d:.08s">
+        <figcaption class="plate-h"><span class="fig-n">Figure 4</span> Revenue by product line, six months ended Jun&nbsp;30</figcaption>
+        <div class="pc"><div class="pc-row"><span class="pc-l">OviTex</span><span class="pc-pair"><span class="pc-bar pc-prior" style="--w:81.99%"><b>$24.6M</b></span><span class="pc-bar pc-now motif-grow" style="--w:86.42%"><b>$25.9M</b></span></span><span class="pc-d">+5%</span></div><div class="pc-row"><span class="pc-l">OviTex PRS</span><span class="pc-pair"><span class="pc-bar pc-prior" style="--w:44.59%"><b>$13.4M</b></span><span class="pc-bar pc-now motif-grow" style="--w:37.80%"><b>$11.3M</b></span></span><span class="pc-d">&minus;15%</span></div><div class="pc-row"><span class="pc-l">Other</span><span class="pc-pair"><span class="pc-bar pc-prior" style="--w:2.48%"><b>$0.7M</b></span><span class="pc-bar pc-now motif-grow" style="--w:3.61%"><b>$1.1M</b></span></span><span class="pc-d">+45%</span></div><p class="pc-key"><span class="pc-kp" aria-hidden="true"></span> six months ended Jun&nbsp;30, 2025 <span class="pc-kn" aria-hidden="true"></span> six months ended Jun&nbsp;30, 2026. Changes are calculated from the filed figures.</p></div>
+        <p class="plate-note">Unaudited. In the second quarter the company sold 5,776 units of OviTex against 5,178 a year earlier (up 12%) and 1,050 units of OviTex PRS against 1,362 (down 23%), and cites price and mix headwinds in hernia procedures. Product-line revenue is from the 10-Q&rsquo;s revenue note. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 4</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926093371/tm2622768d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;10, 2026</a></p>
+      </figure>
+    </div>
+
+    <div class="table-scroll reveal">
+      <table class="fin stm"><caption>Statements of operations and cash flow, $ thousands except per-share data, as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">FY2025<small>year ended Dec&nbsp;31, 2025</small></th><th scope="col" class="num">FY2024<small>year ended Dec&nbsp;31, 2024</small></th><th scope="col" class="num">H1 2026<small>six months to Jun&nbsp;30, 2026, unaudited</small></th><th scope="col" class="num">H1 2025<small>six months to Jun&nbsp;30, 2025, unaudited</small></th></tr></thead><tbody><tr class="tot"><th scope="row">Revenue</th><td class="num">80,275</td><td class="num">69,300</td><td class="num">38,350</td><td class="num">38,717</td></tr><tr class=""><th scope="row">Cost of revenue, excluding amortization of intangible assets</th><td class="num">25,554</td><td class="num">22,432</td><td class="num">11,697</td><td class="num">11,910</td></tr><tr class=""><th scope="row">Amortization of intangible assets</th><td class="num">380</td><td class="num">380</td><td class="num">190</td><td class="num">190</td></tr><tr class="tot"><th scope="row">Gross profit</th><td class="num">54,341</td><td class="num">46,488</td><td class="num">26,463</td><td class="num">26,617</td></tr><tr class=""><th scope="row">Sales and marketing</th><td class="num">63,182</td><td class="num">64,648</td><td class="num">32,979</td><td class="num">33,465</td></tr><tr class=""><th scope="row">General and administrative</th><td class="num">15,694</td><td class="num">14,722</td><td class="num">8,227</td><td class="num">7,962</td></tr><tr class=""><th scope="row">Research and development</th><td class="num">9,220</td><td class="num">8,813</td><td class="num">5,066</td><td class="num">4,743</td></tr><tr class="tot"><th scope="row">Total operating expenses</th><td class="num">88,096</td><td class="num">88,183</td><td class="num">46,272</td><td class="num">46,170</td></tr><tr class=""><th scope="row">Gain on sale of product line</th><td class="num">0</td><td class="num">7,580</td><td class="num">0</td><td class="num">0</td></tr><tr class="tot"><th scope="row">Loss from operations</th><td class="num">(33,755)</td><td class="num">(34,115)</td><td class="num">(19,809)</td><td class="num">(19,553)</td></tr><tr class=""><th scope="row">Interest expense</th><td class="num">(5,245)</td><td class="num">(5,290)</td><td class="num">(4,129)</td><td class="num">(2,407)</td></tr><tr class=""><th scope="row">Loss on extinguishment of debt</th><td class="num">(888)</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><th scope="row">Other income</th><td class="num">1,287</td><td class="num">1,420</td><td class="num">523</td><td class="num">858</td></tr><tr class=""><th scope="row">Income tax (expense) benefit</th><td class="num">(230)</td><td class="num">144</td><td class="num">(120)</td><td class="num">(85)</td></tr><tr class="tot"><th scope="row">Net loss</th><td class="num">(38,831)</td><td class="num">(37,841)</td><td class="num">(23,535)</td><td class="num">(21,187)</td></tr><tr class=""><th scope="row">Net loss per common share, basic and diluted ($)</th><td class="num">(0.83)</td><td class="num">(1.33)</td><td class="num">(0.41)</td><td class="num">(0.47)</td></tr><tr class=""><th scope="row">Weighted-average shares, including pre-funded warrants</th><td class="num">46,947,932</td><td class="num">28,526,441</td><td class="num">57,335,875</td><td class="num">45,316,444</td></tr><tr class=""><th scope="row">Net cash used in operating activities</th><td class="num">(28,219)</td><td class="num">(41,595)</td><td class="num">(20,551)</td><td class="num">(17,630)</td></tr></tbody></table>
+    </div>
+
+    <ul class="fin-notes reveal">
+      <li><strong>Gross margin</strong> 67.7% in 2025. In the second quarter of 2026 it was 72% against 70%; the company attributes the rise to a lower charge for excess and obsolete inventory and to a $0.6M refund of tariffs paid in 2025. For the six months it was 69% in both years. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></li>
+      <li><strong>Operating expenses</strong> $88.1M in 2025 against $88.2M in 2024; $46.3M in the first half of 2026 against $46.2M. The workforce reduction announced Aug&nbsp;31 came after the half-year and is not in these figures. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 7</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></li>
+      <li><strong>Interest</strong> Interest expense was $4.1M in the first half of 2026 against $2.4M, because the facility with Perceptive is larger and carries a higher rate than the MidCap loan it replaced in November 2025. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></li>
+      <li><strong>Cash used in operations</strong> $20.6M in the first half of 2026 against $17.6M; $28.2M for 2025. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Cash flows</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 8</a></li>
+    </ul>
+  </div>
+</section>
+<!-- ============ 06 DISCLOSURES: the gravest band. Its own stock (darkest, ledger-ruled), no extra chroma. Item 01 is the going-concern statement in the filed words; 02 to 08 are the facts around it. ============ -->
+<section id="disclosures" class="disclosures sec-dark sec-dark-2" aria-labelledby="disc-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Disclosures</p>
+      <h2 id="disc-h">What the filings say about the company&rsquo;s position</h2>
+      <p class="lead">Set out in the filed words where the words matter. Nothing on this page replaces the filings, and the filings are linked beside each item.</p>
+    </div>
+
+    <article class="gc reveal" aria-labelledby="gc-h">
+      <p class="gc-n" aria-hidden="true">01</p>
+      <div class="gc-body">
+        <h3 id="gc-h">Going concern</h3>
+        <p>In the 10-Q for the quarter ended Jun&nbsp;30, 2026, filed Aug&nbsp;11, 2026, management concluded:</p>
+        <blockquote>These conditions and events raise substantial doubt about the Company&rsquo;s ability to continue as a going concern within one year after the date these consolidated financial statements are issued. <cite><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 3</a></cite></blockquote>
+        <p>The note cites recurring losses and negative cash flows from operations since inception, with an accumulated deficit of $421.1M, and says &ldquo;management&rsquo;s current forecasts indicate it is probable that the Company will not achieve the minimum revenue threshold required under the Credit Agreement during the twelve-month period following the issuance of these consolidated financial statements.&rdquo; It adds that &ldquo;projected compliance with the liquidity covenant is sensitive to changes in the assumptions of our operating forecast.&rdquo; The 10-Q says the company was in compliance with its covenants at Jun&nbsp;30, 2026, and that if it failed to meet them without a waiver or amendment, the lender &ldquo;could declare an event of default and accelerate repayment,&rdquo; which the company &ldquo;does not expect to have sufficient liquidity&rdquo; to repay. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 3</a></p>
+        <p>Management&rsquo;s stated plans are to seek a waiver or amendment, to pursue initiatives to increase revenue and to reduce operating expenses. The note says such actions &ldquo;would not eliminate the risk of noncompliance with the revenue covenant,&rdquo; and Item 1A adds that &ldquo;there can be no assurances&rdquo; a waiver or amendment will be obtained on acceptable terms, or at all. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 3</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Item 1A</a></p>
+        <p>The 10-K for 2025 contained no going-concern conclusion. No filing since the 10-Q has updated this one; the Sep&nbsp;14 proxy statement says only that if the company cannot raise sufficient additional capital it &ldquo;may not be able to continue as a going concern.&rdquo; <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926107491/tm2624723-2_def14a.htm" target="_blank" rel="noopener">DEF 14A, Sep&nbsp;14, 2026</a> On Sep&nbsp;28 the lenders agreed the minimum revenue covenant would not be tested for the quarters ending on or about Sep&nbsp;30 and Dec&nbsp;31, 2026, two of the quarters in the twelve-month period the 10-Q assessed; the consent&rsquo;s full text is to be filed with the 10-Q for the quarter ended Sep&nbsp;30, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926111920/tm2626521d1_8k.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;29, 2026</a></p>
+        <p>The same 10-Q&rsquo;s liquidity overview states that, on the current business plan, the company believes its existing cash resources &ldquo;will be sufficient to meet our capital requirements and fund our operations for at least the next 12 months.&rdquo; Both statements are in the report. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Liquidity</a></p>
+      </div>
+    </article>
+
+    <ol class="ledger">
+      <li class="reveal">
+        <span class="num" aria-hidden="true">02</span>
+        <div>
+          <h3>The Perceptive term loan</h3>
+          <p>$60.0M of a senior secured term loan facility of up to $70.0M with Perceptive Credit Holdings V, LP was funded on Nov&nbsp;14, 2025 and matures on Nov&nbsp;14, 2030. There are no scheduled principal payments before maturity. Interest is 7.85% plus the greater of a reference rate and 4.25%, paid monthly, and prepayment carries a premium of 2% to 10% of the principal prepaid, depending on the date. The loan is secured by a first lien on substantially all of the company&rsquo;s assets. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 6</a></p>
+          <p>The company must keep liquidity of at least $5.0M at all times and, as of each quarterly calculation date, revenue not below amounts set in the credit agreement; the amounts are not stated in the 10-Q. Events of default include a covenant violation; after one the applicable margin rises by a further 3.00% a year, and the lender could accelerate the loan (the 10-Q&rsquo;s risk factor adds that it could foreclose on the collateral). The lender also holds warrants for 2,000,000 shares at $1.11 that expire on Nov&nbsp;14, 2035. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 6</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Item 1A</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.04s">
+        <span class="num" aria-hidden="true">03</span>
+        <div>
+          <h3>Nasdaq listing</h3>
+          <p>On Mar&nbsp;17, 2026 Nasdaq notified the company that its closing bid price had been below $1.00 for 30 consecutive business days. The 180-day compliance period ended Sep&nbsp;14 without compliance, and on Sep&nbsp;15 the staff notified the company that its stock was subject to delisting unless it requested a hearing; the company said it would. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926032697/tm269374d1_8k.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;20, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926108935/tm2625586d1_8k.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;18, 2026</a></p>
+          <p>On Oct&nbsp;5 Nasdaq wrote that compliance had been regained and the matter closed. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114042/tm2627116d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;6, 2026</a> On Oct&nbsp;8, stockholders approved authority for a reverse stock split at a ratio of 1-for-5 to 1-for-15, to be set by the board. The votes were 30,515,571 for, 80,512 against and 1,737,011 abstaining, and the company said it does not intend to effect the split at this time. The proxy statement lets the board effect it at any time within one year of approval. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114695/tm2627202d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;8, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926107491/tm2624723-2_def14a.htm" target="_blank" rel="noopener">DEF 14A, Sep&nbsp;14, 2026</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.08s">
+        <span class="num" aria-hidden="true">04</span>
+        <div>
+          <h3>Share count and dilution</h3>
+          <p>There were 44,833,942 common shares outstanding at Jun&nbsp;30, 2026 and 45,143,410 at the Sep&nbsp;8, 2026 record date for the special meeting. Pre-funded warrants for 12,623,000 shares, exercisable at $0.0001, are counted in the share total used for loss per share (57.4 million for the second quarter) but are not in the common-share count. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 4</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 7</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114695/tm2627202d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;8, 2026</a></p>
+          <p>Also outstanding at Jun&nbsp;30: warrants for 2,000,000 shares at $1.11 issued with the credit agreement, other warrants for 88,556 shares at $28.65, 3,485,351 stock options and 2,015,615 unvested restricted stock units. In November 2025 the company sold 4,189,000 shares at $1.11 and pre-funded warrants for 7,523,000 shares in a registered direct offering. Stockholders approved 3,500,000 more shares for the equity plan on Jun&nbsp;9, and on Aug&nbsp;3 the new chief executive received inducement grants of options on 2,370,000 shares (1,005,000 of them premium-priced, at the greater of $0.90 and a 15% premium to the grant-date price) and restricted stock units for 500,000. If the company completes equity financings within 18 months of Aug&nbsp;3, 2026, she is entitled to top-up grants sized so that her total grants equal 5% of the shares then outstanding, counting shares underlying pre-funded warrants. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 4</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 7</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 9</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465925112653/tm2531310d1_8k.htm" target="_blank" rel="noopener">8-K, Nov&nbsp;14, 2025</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926072931/tm2617369d1_8k.htm" target="_blank" rel="noopener">8-K, Jun&nbsp;11, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926090056/tm2622121d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;4, 2026</a></p>
+          <p>Total stockholders&rsquo; equity was a deficit of $15.9M at Jun&nbsp;30, 2026 (equity of $6.3M at Dec&nbsp;31, 2025). An at-the-market program for up to $50M with Piper Sandler is in place; the company says no shares have ever been sold under it. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, balance sheet</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Liquidity</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.12s">
+        <span class="num" aria-hidden="true">05</span>
+        <div>
+          <h3>Revenue direction and guidance</h3>
+          <p>Revenue for the first half of 2026 was $38.4M, down 1%, and for the second quarter $19.3M, down 4%. OviTex PRS revenue fell from $7.3M to $5.5M in the quarter. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Note 4</a> The company cites price and mix headwinds in hernia procedures and bundling by its largest competitors. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926093371/tm2622768d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;10, 2026</a></p>
+          <p>Guidance of revenue growth of at least 8% for 2026 was set on Mar&nbsp;24 and reiterated on May&nbsp;12. On Aug&nbsp;10 the company withdrew it, saying it would update guidance in the future. No later filing gives new guidance. The Mar&nbsp;24 release also guided first-quarter revenue to about $18.5M (actual $19.1M) and the May&nbsp;12 release second-quarter revenue to about $20.0M (actual $19.3M). <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926033839/tm269387d1_8k.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;24, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926059393/tm2614218d1_8k.htm" target="_blank" rel="noopener">8-K, May&nbsp;12, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926093371/tm2622768d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;10, 2026</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.16s">
+        <span class="num" aria-hidden="true">06</span>
+        <div>
+          <h3>Leadership and workforce</h3>
+          <p>On Aug&nbsp;3 the board determined that Antony Koblish, the chief executive and a co-founder, would no longer serve as chief executive; he also resigned from the board. The chief financial and chief operating officer, Roberto Cuca, stepped down on Aug&nbsp;31. Both are treated as terminations without cause. Heather Getz is chief executive and principal financial officer. The chairman, Doug Evans, and three other directors said on Apr&nbsp;29 that they would leave the board after the Jun&nbsp;9 annual meeting; Joseph Capper, elected at that meeting, was to become chairman, and three directors were appointed to take seats after it. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926090056/tm2622121d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;4, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926033839/tm269387d1_8k.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;24, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926103548/tm2624299d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;31, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926053102/tm2612982d1_8k.htm" target="_blank" rel="noopener">8-K, Apr&nbsp;30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926072931/tm2617369d1_8k.htm" target="_blank" rel="noopener">8-K, Jun&nbsp;11, 2026</a></p>
+          <p>The board approved on Aug&nbsp;28 a reduction of about 20% of the workforce, from 201 to 160 full-time employees, with aggregate charges of about $1.5M expected in the third quarter, primarily severance and other employee-related costs that it expects to be paid in cash. In its Aug&nbsp;31 release the company said it had taken actions to reduce annual operating expenses by about $17.0M, through the headcount reduction and the streamlining of external resources, and expected &ldquo;to extend our cash runway into 2028.&rdquo; That is a forward-looking statement in a press release; the going-concern statement in item 01 is the one made in the financial statements. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926103548/tm2624299d1_8k.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;31, 2026</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.2s">
+        <span class="num" aria-hidden="true">07</span>
+        <div>
+          <h3>One manufacturer</h3>
+          <p>Aroa Biosurgery is the exclusive contract manufacturer of OviTex and OviTex PRS, in New Zealand, and the 10-K lists the company&rsquo;s dependence on it as a risk factor. The FDA clearances for the OviTex hernia products were obtained and are held by Aroa, not by TELA Bio; the OviTex PRS clearances are held by TELA Bio. The Aroa license runs to the expiry of the last covered patent, currently Mar&nbsp;9, 2031, with an option to extend for ten years. Liora, cleared Oct&nbsp;5, is the first implant developed in the company&rsquo;s own cleanroom. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926113506/tm2627013d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;5, 2026</a></p>
+        </div>
+      </li>
+      <li class="reveal" style="--d:.24s">
+        <span class="num" aria-hidden="true">08</span>
+        <div>
+          <h3>Other risks</h3>
+          <p>Item 1A of the 10-K lists the remaining risk factors, including pricing pressure, competition, reimbursement, tariffs and trade measures, hospital staffing and the protection of the company&rsquo;s intellectual property; Item 1A of the 10-Q adds the going-concern risk factor and reports no other material changes. The 10-Q for the quarter ended Sep&nbsp;30, 2026 is not yet filed; the company has said its third quarter earnings call is expected in early November. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">10-K, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">10-Q, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926113506/tm2627013d1_8k.htm" target="_blank" rel="noopener">8-K, Oct&nbsp;5, 2026</a></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+<!-- ============ 07 RECORD + CONTACT IR: the filed record on the left half, the company's own investor channels on the right. Alerts and contact are merged here (the investor site's email alerts and Contact IR buttons are observed; their URLs are not, so the investor home is linked). ============ -->
+<section id="record" class="record split sec-tint" aria-labelledby="record-h">
+  <div class="half half-l record-list">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Record</p>
+      <h2 id="record-h">Filed with the SEC, newest first</h2>
+      <p class="lead">A selection of the company&rsquo;s filings from March to October 2026, each linked to its page on EDGAR. EDGAR holds every filing, including insider forms and proxy materials not listed here.</p>
+    </div>
+    <ul class="doc-list reveal">
+      <li><time datetime="2026-10-08">Oct&nbsp;8</time><span class="form">8-K</span><span class="what">Special meeting results: reverse split authority approved; not to be effected at this time</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114695/tm2627202d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Oct&nbsp;8, 2026)</span></a></li>
+      <li><time datetime="2026-10-06">Oct&nbsp;6</time><span class="form">8-K</span><span class="what">Nasdaq letter: bid-price compliance regained, matter closed</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926114042/tm2627116d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Oct&nbsp;6, 2026)</span></a></li>
+      <li><time datetime="2026-10-05">Oct&nbsp;5</time><span class="form">8-K</span><span class="what">FDA 510(k) clearance for Liora Monofilament Scaffold (press release)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926113506/tm2627013d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Oct&nbsp;5, 2026)</span></a></li>
+      <li><time datetime="2026-09-29">Sep&nbsp;29</time><span class="form">8-K</span><span class="what">Limited consent from Perceptive: minimum revenue covenant not tested for two quarters</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926111920/tm2626521d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Sep&nbsp;29, 2026)</span></a></li>
+      <li><time datetime="2026-09-18">Sep&nbsp;18</time><span class="form">8-K</span><span class="what">Nasdaq staff delisting determination; hearing to be requested</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926108935/tm2625586d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Sep&nbsp;18, 2026)</span></a></li>
+      <li><time datetime="2026-09-14">Sep&nbsp;14</time><span class="form">DEF 14A</span><span class="what">Proxy statement for the special meeting, with the reverse split proposal</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926107491/tm2624723-2_def14a.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (DEF 14A, Sep&nbsp;14, 2026)</span></a></li>
+      <li><time datetime="2026-08-31">Aug&nbsp;31</time><span class="form">8-K</span><span class="what">COO and CFO transition; workforce reduction (press release)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926103548/tm2624299d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Aug&nbsp;31, 2026)</span></a></li>
+      <li><time datetime="2026-08-11">Aug&nbsp;11</time><span class="form">10-Q</span><span class="what">Quarterly report, quarter ended Jun&nbsp;30, 2026, with the going-concern note</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926094039/tela-20260630x10q.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-Q, Aug&nbsp;11, 2026)</span></a></li>
+      <li><time datetime="2026-08-10">Aug&nbsp;10</time><span class="form">8-K</span><span class="what">Second quarter results (press release); guidance withdrawn</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926093371/tm2622768d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Aug&nbsp;10, 2026)</span></a></li>
+      <li><time datetime="2026-08-04">Aug&nbsp;4</time><span class="form">8-K</span><span class="what">Chief executive change</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926090056/tm2622121d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Aug&nbsp;4, 2026)</span></a></li>
+      <li><time datetime="2026-05-12">May&nbsp;12</time><span class="form">8-K</span><span class="what">First quarter results (press release and presentation)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926059393/tm2614218d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, May&nbsp;12, 2026)</span></a></li>
+      <li><time datetime="2026-03-25">Mar&nbsp;25</time><span class="form">10-K</span><span class="what">Annual report for the year ended Dec&nbsp;31, 2025</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926034507/tela-20251231x10k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-K, Mar&nbsp;25, 2026)</span></a></li>
+      <li><time datetime="2026-03-24">Mar&nbsp;24</time><span class="form">8-K</span><span class="what">Fourth quarter and full year results (press release and presentation)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926033839/tm269387d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Mar&nbsp;24, 2026)</span></a></li>
+      <li><time datetime="2026-03-20">Mar&nbsp;20</time><span class="form">8-K</span><span class="what">Nasdaq minimum bid price deficiency notice</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465926032697/tm269374d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Mar&nbsp;20, 2026)</span></a></li>
+      <li><time datetime="2025-11-14">Nov&nbsp;14, 2025</time><span class="form">8-K</span><span class="what">Perceptive credit agreement and registered direct offering</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1561921/000110465925112653/tm2531310d1_8k.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Nov&nbsp;14, 2025)</span></a></li>
+    </ul>
+  </div>
+
+  <div class="half half-r contact" id="contact">
+    <div class="contact-sticky">
+    <p class="eyebrow reveal">Contact IR</p>
+    <h2 class="reveal" style="--d:.05s">The company&rsquo;s own investor channels</h2>
+    <p class="lead reveal" style="--d:.1s">TELA Bio runs an official investor site with news releases, SEC filings, stock information, governance documents and investor FAQs. Its home page carries the email alerts, RSS feeds and Contact IR options.</p>
+    <ul class="chan reveal" style="--d:.14s">
+      <li><a class="btn btn-primary" href="https://ir.telabio.com/" target="_blank" rel="noopener">Investor site, with email alerts <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+      <li><a class="btn btn-ghost" href="https://ir.telabio.com/news-events/news-releases" target="_blank" rel="noopener">News releases <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+      <li><a class="btn btn-ghost" href="https://ir.telabio.com/financial-information/sec-filings" target="_blank" rel="noopener">SEC filings, company site <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+      <li><a class="btn btn-ghost" href="https://ir.telabio.com/stock-information/stock-performance" target="_blank" rel="noopener">Stock information <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+      <li><a class="btn btn-ghost" href="https://ir.telabio.com/resources/investor-faqs" target="_blank" rel="noopener">Investor FAQs <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+      <li><a class="btn btn-ghost" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001561921&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">EDGAR filing list <span class="arw" aria-hidden="true">&nearr;</span></a></li>
+    </ul>
+    <dl class="addr reveal" style="--d:.18s">
+      <div><dt>Company</dt><dd>TELA Bio, Inc., 1 Great Valley Parkway, Suite 24, Malvern, Pennsylvania 19355</dd></div>
+      <div><dt>Telephone</dt><dd>(484) 320-2930, the number on the cover of its SEC filings</dd></div>
+      <div><dt>Next dated event</dt><dd>Third quarter 2026 earnings call, expected in early November, per the company&rsquo;s Aug&nbsp;31 and Oct&nbsp;5 releases</dd></div>
+    </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-logo" href="#hero" aria-label="TELA Bio, back to the top"><img src="img/logo-white.svg" alt="TELA Bio" width="288" height="79"></a>
+      <ul class="footer-links">
+        <li><a href="https://ir.telabio.com/" target="_blank" rel="noopener">Official investor relations site</a></li>
+        <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001561921&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings (EDGAR)</a></li>
+        <li><a href="https://www.telabio.com/" target="_blank" rel="noopener">telabio.com</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#record">The record</a></li>
+      </ul>
+    </div>
+    <p class="fls"><b>Sources and method:</b> Figures come from the company&rsquo;s annual report on Form 10-K for the year ended December 31, 2025 (filed March 25, 2026), its quarterly report on Form 10-Q for the quarter ended June 30, 2026 (filed August 11, 2026) and its Forms 8-K through October 8, 2026, each linked beside the item. The FY2017 to FY2022 bars in Figure 2 come from the SEC&rsquo;s XBRL data for the company&rsquo;s earlier annual reports, which are not among the filings linked here. Financial tables are in US dollars. Product photographs and the logo are the company&rsquo;s own, from telabio.com. The market sizes are the company&rsquo;s own estimates from its 10-K. This page shows no live share quote.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official TELA Bio investor relations website. It is not affiliated with, endorsed by, or maintained by TELA Bio, Inc. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://ir.telabio.com/">ir.telabio.com</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the company's ability to continue as a going concern and to comply with the financial covenants of its credit agreement with Perceptive, its ability to raise additional capital and the dilution that would follow, its reliance on Aroa as the exclusive contract manufacturer of OviTex and OviTex PRS, changes in its leadership and the effect of its workforce reduction, market acceptance, pricing and reimbursement of its products and competition from larger companies, tariffs and supply-chain conditions, the regulatory clearance of new products, the continued listing of its common stock on Nasdaq, and the protection of its intellectual property. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote; the only share prices it cites are those stated in the filings, with their dates.</p>
+  </div>
+</footer>
+
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
